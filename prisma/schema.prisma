@@ -1,0 +1,301 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  USER
+  ADMIN
+}
+
+enum LanguageCode {
+  EN
+  ZH
+  JA
+}
+
+enum CefrLevel {
+  A1
+  A2
+  B1
+  B2
+  C1
+  C2
+}
+
+enum Plan {
+  FREE
+  PREMIUM
+  PRO
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  CANCELLED
+  EXPIRED
+}
+
+enum QuizType {
+  MULTIPLE_CHOICE
+  FILL_BLANK
+  ARRANGE
+  LISTENING
+}
+
+enum ChatTopic {
+  DAILY
+  TRAVEL
+  BUSINESS
+  INTERVIEW
+}
+
+enum MessageRole {
+  USER
+  ASSISTANT
+}
+
+enum ProgressType {
+  VOCABULARY
+  GRAMMAR
+  QUIZ
+  SPEAKING
+  CHAT
+}
+
+enum ProgressStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  COMPLETED
+}
+
+model User {
+  id           String   @id @default(uuid())
+  email        String   @unique
+  passwordHash String?  @map("password_hash")
+  role         Role     @default(USER)
+  isActive     Boolean  @default(true) @map("is_active")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  profile          UserProfile?
+  subscription     Subscription?
+  progress         UserProgress[]
+  favoriteWords    VocabularyFavorite[]
+  quizSessions     QuizSession[]
+  chatSessions     ChatSession[]
+  speakingSessions SpeakingSession[]
+
+  @@map("users")
+}
+
+model UserProfile {
+  id           String       @id @default(uuid())
+  userId       String       @unique @map("user_id")
+  displayName  String       @map("display_name")
+  avatarUrl    String?      @map("avatar_url")
+  learningLang LanguageCode @default(EN) @map("learning_lang")
+  currentLevel CefrLevel    @default(A1) @map("current_level")
+  dailyGoalMin Int          @default(15) @map("daily_goal_min")
+  timezone     String       @default("Asia/Ho_Chi_Minh")
+  streakDays   Int          @default(0) @map("streak_days")
+  totalXp      Int          @default(0) @map("total_xp")
+  lastActiveAt DateTime?    @map("last_active_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("user_profiles")
+}
+
+model Subscription {
+  id               String             @id @default(uuid())
+  userId           String             @unique @map("user_id")
+  plan             Plan               @default(FREE)
+  status           SubscriptionStatus @default(ACTIVE)
+  startedAt        DateTime           @default(now()) @map("started_at")
+  expiresAt        DateTime?          @map("expires_at")
+  stripeCustomerId String?            @map("stripe_customer_id")
+  stripeSubId      String?            @map("stripe_sub_id")
+  updatedAt        DateTime           @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("subscriptions")
+}
+
+model Language {
+  id   String       @id @default(uuid())
+  code LanguageCode @unique
+  name String
+  flag String
+
+  vocabularyCards  VocabularyCard[]
+  grammarLessons   GrammarLesson[]
+  quizQuestions    QuizQuestion[]
+  chatSessions     ChatSession[]
+  speakingSessions SpeakingSession[]
+
+  @@map("languages")
+}
+
+model VocabularyCard {
+  id              String    @id @default(uuid())
+  languageId      String    @map("language_id")
+  word            String
+  pronunciation   String?
+  meaningVi       String    @map("meaning_vi") @db.Text
+  meaningEn       String?   @map("meaning_en") @db.Text
+  exampleSentence String?   @map("example_sentence") @db.Text
+  imageUrl        String?   @map("image_url")
+  audioUrl        String?   @map("audio_url")
+  level           CefrLevel @default(A1)
+  topicTags       Json?     @map("topic_tags")
+  createdAt       DateTime  @default(now()) @map("created_at")
+
+  language  Language             @relation(fields: [languageId], references: [id])
+  favorites VocabularyFavorite[]
+
+  @@map("vocabulary_cards")
+}
+
+model VocabularyFavorite {
+  id      String   @id @default(uuid())
+  userId  String   @map("user_id")
+  cardId  String   @map("card_id")
+  savedAt DateTime @default(now()) @map("saved_at")
+
+  user User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  card VocabularyCard @relation(fields: [cardId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, cardId])
+  @@map("vocabulary_favorites")
+}
+
+model GrammarLesson {
+  id         String    @id @default(uuid())
+  languageId String    @map("language_id")
+  title      String
+  content    String    @db.LongText
+  level      CefrLevel @default(A1)
+  orderIndex Int       @default(0) @map("order_index")
+  createdAt  DateTime  @default(now()) @map("created_at")
+
+  language Language @relation(fields: [languageId], references: [id])
+
+  @@map("grammar_lessons")
+}
+
+model QuizQuestion {
+  id          String    @id @default(uuid())
+  languageId  String    @map("language_id")
+  type        QuizType  @default(MULTIPLE_CHOICE)
+  question    String    @db.Text
+  options     Json?
+  correctAns  String    @map("correct_ans") @db.Text
+  explanation String?   @db.Text
+  audioUrl    String?   @map("audio_url")
+  level       CefrLevel @default(A1)
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  language Language     @relation(fields: [languageId], references: [id])
+  answers  QuizAnswer[]
+
+  @@map("quiz_questions")
+}
+
+model QuizSession {
+  id         String    @id @default(uuid())
+  userId     String    @map("user_id")
+  startedAt  DateTime  @default(now()) @map("started_at")
+  finishedAt DateTime? @map("finished_at")
+  score      Decimal?  @db.Decimal(5, 2)
+  xpEarned   Int       @default(0) @map("xp_earned")
+
+  user    User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  answers QuizAnswer[]
+
+  @@map("quiz_sessions")
+}
+
+model QuizAnswer {
+  id         String  @id @default(uuid())
+  sessionId  String  @map("session_id")
+  questionId String  @map("question_id")
+  answer     String  @db.Text
+  isCorrect  Boolean @map("is_correct")
+
+  session  QuizSession  @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  question QuizQuestion @relation(fields: [questionId], references: [id])
+
+  @@map("quiz_answers")
+}
+
+model ChatSession {
+  id         String    @id @default(uuid())
+  userId     String    @map("user_id")
+  languageId String    @map("language_id")
+  topic      ChatTopic @default(DAILY)
+  startedAt  DateTime  @default(now()) @map("started_at")
+  endedAt    DateTime? @map("ended_at")
+  msgCount   Int       @default(0) @map("msg_count")
+
+  user     User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  language Language      @relation(fields: [languageId], references: [id])
+  messages ChatMessage[]
+
+  @@map("chat_sessions")
+}
+
+model ChatMessage {
+  id          String      @id @default(uuid())
+  sessionId   String      @map("session_id")
+  role        MessageRole
+  content     String      @db.Text
+  grammarNote Json?       @map("grammar_note")
+  createdAt   DateTime    @default(now()) @map("created_at")
+
+  session ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@map("chat_messages")
+}
+
+model SpeakingSession {
+  id            String   @id @default(uuid())
+  userId        String   @map("user_id")
+  languageId    String   @map("language_id")
+  originalText  String?  @map("original_text") @db.Text
+  userAudioUrl  String   @map("user_audio_url")
+  transcribed   String?  @db.Text
+  scorePronun   Decimal? @map("score_pronun") @db.Decimal(5, 2)
+  scoreGrammar  Decimal? @map("score_grammar") @db.Decimal(5, 2)
+  scoreFluency  Decimal? @map("score_fluency") @db.Decimal(5, 2)
+  scoreVocab    Decimal? @map("score_vocab") @db.Decimal(5, 2)
+  feedback      Json?
+  modelAudioUrl String?  @map("model_audio_url")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  user     User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  language Language @relation(fields: [languageId], references: [id])
+
+  @@map("speaking_sessions")
+}
+
+model UserProgress {
+  id          String         @id @default(uuid())
+  userId      String         @map("user_id")
+  resourceId  String         @map("resource_id")
+  type        ProgressType
+  status      ProgressStatus @default(NOT_STARTED)
+  score       Decimal?       @db.Decimal(5, 2)
+  xpEarned    Int            @default(0) @map("xp_earned")
+  completedAt DateTime?      @map("completed_at")
+  updatedAt   DateTime       @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, resourceId, type])
+  @@map("user_progress")
+}
