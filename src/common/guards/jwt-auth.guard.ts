@@ -1,1 +1,6 @@
-// common/guards/jwt-auth.guard.ts — JWT authentication guard
+// JWT authentication guard
+import { Injectable } from "@nestjs/common";
+import { AuthGuard } from "@nestjs/passport";
+
+@Injectable()
+export class JwtAuthGuard extends AuthGuard("jwt") {}
