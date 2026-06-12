@@ -4,6 +4,8 @@ import configuration from "./config/configuration";
 import { PrismaModule } from "./database/prisma.module";
 import { AuthModule } from "./modules/auth/auth.module";
 import { VocabularyModule } from "./modules/vocabulary/vocabulary.module";
+import { GrammarModule } from "./modules/grammar/grammar.module";
+import { QuizModule } from "./modules/quiz/quiz.module";
 
 @Module({
   imports: [
@@ -15,7 +17,8 @@ import { VocabularyModule } from "./modules/vocabulary/vocabulary.module";
     PrismaModule,
     AuthModule,
     VocabularyModule,
-    // TODO: GrammarModule, QuizModule
+    GrammarModule,
+    QuizModule,
   ],
 })
 export class AppModule {}
