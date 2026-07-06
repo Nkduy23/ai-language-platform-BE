@@ -1,6 +1,6 @@
-// common/filters/http-exception.filter.ts — Global error handler
 import { ExceptionFilter, Catch, ArgumentsHost, HttpException, HttpStatus } from "@nestjs/common";
 import { Request, Response } from "express";
+import * as Sentry from "@sentry/node";
 
 @Catch()
 export class AllExceptionsFilter implements ExceptionFilter {
@@ -10,6 +10,11 @@ export class AllExceptionsFilter implements ExceptionFilter {
     const request = ctx.getRequest<Request>();
 
     const status = exception instanceof HttpException ? exception.getStatus() : HttpStatus.INTERNAL_SERVER_ERROR;
+
+    // Chỉ gửi lỗi server thật (5xx) lên Sentry — lỗi validation/4xx là hành vi bình thường, không cần track
+    if (status >= 500) {
+      Sentry.captureException(exception);
+    }
 
     const message = exception instanceof HttpException ? exception.getResponse() : "Internal server error";
 

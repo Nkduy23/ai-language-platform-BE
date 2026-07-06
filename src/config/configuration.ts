@@ -14,4 +14,51 @@ export default () => ({
     accessExpires: process.env.JWT_ACCESS_EXPIRES || "15m",
     refreshExpires: process.env.JWT_REFRESH_EXPIRES || "30d",
   },
+
+  redis: {
+    url: process.env.REDIS_URL || "redis://localhost:6379",
+  },
+
+  openai: {
+    apiKey: process.env.OPENAI_API_KEY,
+    chatModel: process.env.OPENAI_CHAT_MODEL || "gpt-4o",
+  },
+
+  googleTts: {
+    // Credentials JSON được set qua GOOGLE_APPLICATION_CREDENTIALS (path) hoặc GOOGLE_TTS_CREDENTIALS_JSON (inline, cho Railway)
+    credentialsJson: process.env.GOOGLE_TTS_CREDENTIALS_JSON,
+  },
+
+  chatLimits: {
+    freeMessagesPerDay: parseInt(process.env.CHAT_FREE_LIMIT || "10", 10),
+  },
+
+  stripe: {
+    secretKey: process.env.STRIPE_SECRET_KEY,
+    webhookSecret: process.env.STRIPE_WEBHOOK_SECRET,
+  },
+
+  vnpay: {
+    tmnCode: process.env.VNPAY_TMN_CODE,
+    secretKey: process.env.VNPAY_SECRET_KEY,
+    url: process.env.VNPAY_URL || "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html",
+  },
+
+  pricing: {
+    premiumVnd: parseInt(process.env.PRICE_PREMIUM_VND || "99000", 10),
+    proVnd: parseInt(process.env.PRICE_PRO_VND || "199000", 10),
+  },
+
+  smtp: {
+    host: process.env.SMTP_HOST,
+    port: parseInt(process.env.SMTP_PORT || "587", 10),
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+    fromName: process.env.SMTP_FROM_NAME || "AI Language Platform",
+    fromEmail: process.env.SMTP_FROM_EMAIL || "no-reply@ailanguage.com",
+  },
+
+  sentry: {
+    dsn: process.env.SENTRY_DSN,
+  },
 });

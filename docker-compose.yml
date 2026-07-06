@@ -1,0 +1,28 @@
+# Docker Compose for local development
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: ailang_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: ai_language_platform
+      MYSQL_USER: ailang
+      MYSQL_PASSWORD: ailangpassword
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  redis:
+    image: redis:7-alpine
+    container_name: ailang_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+volumes:
+  mysql_data:
+  redis_data:
