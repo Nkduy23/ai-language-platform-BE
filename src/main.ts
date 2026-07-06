@@ -1,11 +1,17 @@
 import { NestFactory } from "@nestjs/core";
 import { ValidationPipe } from "@nestjs/common";
 import helmet from "helmet";
+import * as Sentry from "@sentry/node";
 import { AppModule } from "./app.module";
 import { AllExceptionsFilter } from "./common/filters/http-exception.filter";
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  // Sentry — chỉ bật khi có DSN, không throw lỗi nếu thiếu (dev local không cần)
+  if (process.env.SENTRY_DSN) {
+    Sentry.init({ dsn: process.env.SENTRY_DSN, tracesSampleRate: 0.2 });
+  }
+
+  const app = await NestFactory.create(AppModule, { rawBody: true });
 
   // Security
   app.use(helmet());
