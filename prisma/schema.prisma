@@ -299,3 +299,20 @@ model UserProgress {
   @@unique([userId, resourceId, type])
   @@map("user_progress")
 }
+
+model BlogPost {
+  id          String       @id @default(uuid())
+  slug        String       @unique
+  title       String
+  excerpt     String       @db.Text
+  content     String       @db.LongText
+  coverImage  String?      @map("cover_image")
+  language    LanguageCode @default(EN)
+  authorName  String       @default("AI Language Team") @map("author_name")
+  isPublished Boolean      @default(false) @map("is_published")
+  publishedAt DateTime?    @map("published_at")
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
+
+  @@map("blog_posts")
+}
