@@ -5,6 +5,7 @@ import { ConfigService } from "@nestjs/config";
 import * as bcrypt from "bcrypt";
 import { PrismaService } from "../../database/prisma.service";
 import { RegisterDto, LoginDto } from "./auth.dto";
+import { EmailService } from "../../common/email/email.service";
 
 @Injectable()
 export class AuthService {
@@ -12,6 +13,7 @@ export class AuthService {
     private prisma: PrismaService,
     private jwtService: JwtService,
     private configService: ConfigService,
+    private emailService: EmailService,
   ) {}
 
   // ─── Register ───────────────────────────────────────────────────────────────
@@ -60,6 +62,9 @@ export class AuthService {
 
     // Tạo tokens
     const tokens = await this.generateTokens(user.id, user.email, user.role);
+
+    // Gửi welcome email — không await chặn response, lỗi email không nên làm fail đăng ký
+    this.emailService.sendWelcomeEmail(user.email, user.profile?.displayName ?? user.email).catch(() => {});
 
     return {
       ...tokens,
