@@ -1,1 +1,10 @@
-// roadmap.module.ts — NestJS module definition
+import { Module } from "@nestjs/common";
+import { RoadmapService } from "./roadmap.service";
+import { RoadmapController } from "./roadmap.controller";
+
+@Module({
+  controllers: [RoadmapController],
+  providers: [RoadmapService],
+  exports: [RoadmapService],
+})
+export class RoadmapModule {}
