@@ -17,6 +17,8 @@ import { RoadmapModule } from "./modules/roadmap/roadmap.module";
 import { ContentModule } from "./modules/content/content.module";
 import { EmailModule } from "./common/email/email.module";
 import { StreakReminderTask } from "./common/scheduler/streak-reminder.task";
+import { NotificationsModule } from "./modules/notifications/notifications.module";
+import { CommunityModule } from "./modules/community/community.module";
 
 @Module({
   imports: [
@@ -30,6 +32,7 @@ import { StreakReminderTask } from "./common/scheduler/streak-reminder.task";
     RedisModule,
     TtsModule,
     EmailModule,
+    NotificationsModule,
     AuthModule,
     VocabularyModule,
     GrammarModule,
@@ -40,6 +43,7 @@ import { StreakReminderTask } from "./common/scheduler/streak-reminder.task";
     SubscriptionsModule,
     RoadmapModule,
     ContentModule,
+    CommunityModule,
   ],
   providers: [StreakReminderTask],
 })

@@ -88,6 +88,11 @@ model User {
   quizSessions     QuizSession[]
   chatSessions     ChatSession[]
   speakingSessions SpeakingSession[]
+  communityQuestions CommunityQuestion[]
+  communityAnswers   CommunityAnswer[]
+  communityLikes     CommunityLike[]
+  communityBookmarks CommunityBookmark[]
+  notifications      Notification[]
 
   @@map("users")
 }
@@ -137,6 +142,7 @@ model Language {
   quizQuestions    QuizQuestion[]
   chatSessions     ChatSession[]
   speakingSessions SpeakingSession[]
+  communityQuestions CommunityQuestion[]
 
   @@map("languages")
 }
@@ -315,4 +321,95 @@ model BlogPost {
   updatedAt   DateTime     @updatedAt @map("updated_at")
 
   @@map("blog_posts")
+}
+
+// ─── Community Q&A (Phase 3) ────────────────────────────────────────────────
+
+model CommunityQuestion {
+  id         String       @id @default(uuid())
+  userId     String       @map("user_id")
+  languageId String       @map("language_id")
+  title      String
+  content    String       @db.Text
+  createdAt  DateTime     @default(now()) @map("created_at")
+  updatedAt  DateTime     @updatedAt @map("updated_at")
+
+  user     User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  language Language            @relation(fields: [languageId], references: [id])
+  answers  CommunityAnswer[]
+  likes    CommunityLike[]
+  bookmarks CommunityBookmark[]
+
+  @@map("community_questions")
+}
+
+model CommunityAnswer {
+  id         String   @id @default(uuid())
+  questionId String   @map("question_id")
+  userId     String   @map("user_id")
+  content    String   @db.Text
+  isAccepted Boolean  @default(false) @map("is_accepted")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  question CommunityQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  user     User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  likes    CommunityLike[]
+
+  @@map("community_answers")
+}
+
+// Like dùng chung cho cả Question và Answer — chỉ 1 trong 2 field được set
+model CommunityLike {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  questionId String?  @map("question_id")
+  answerId   String?  @map("answer_id")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  user     User               @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question CommunityQuestion? @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  answer   CommunityAnswer?   @relation(fields: [answerId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, questionId, answerId])
+  @@map("community_likes")
+}
+
+model CommunityBookmark {
+  id         String   @id @default(uuid())
+  userId     String   @map("user_id")
+  questionId String   @map("question_id")
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  user     User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  question CommunityQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, questionId])
+  @@map("community_bookmarks")
+}
+
+// ─── Notifications (Phase 3) ────────────────────────────────────────────────
+
+enum NotificationType {
+  STREAK_REMINDER
+  WEEKLY_REPORT
+  COMMUNITY_ANSWER
+  COMMUNITY_LIKE
+  BADGE_EARNED
+  SYSTEM
+}
+
+model Notification {
+  id        String           @id @default(uuid())
+  userId    String           @map("user_id")
+  type      NotificationType
+  title     String
+  body      String           @db.Text
+  link      String?
+  isRead    Boolean          @default(false) @map("is_read")
+  createdAt DateTime         @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, isRead])
+  @@map("notifications")
 }
