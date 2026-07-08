@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "AI Language Platform Backend — NestJS + Prisma",
   "scripts": {
-    "start": "node dist/main",
+    "start": "prisma migrate deploy && node dist/main",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "build": "prisma generate && nest build",
