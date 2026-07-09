@@ -82,6 +82,7 @@ export class AiSpeakingService {
       feedback: {
         summary: evaluation.summary,
         details: evaluation.details,
+        modelAnswer: evaluation.modelAnswer,
         modelAudioUrl,
       },
     };

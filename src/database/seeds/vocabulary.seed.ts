@@ -117,6 +117,20 @@ export async function seedVocabulary(prisma: PrismaClient) {
     { word: "工作", pronunciation: "gōng zuò", meaningVi: "công việc, làm việc", exampleSentence: "我喜欢我的工作。(Tôi thích công việc của mình.)", topicTags: ["work", "daily"], level: "A1" },
     { word: "学习", pronunciation: "xué xí", meaningVi: "học tập", exampleSentence: "我每天学习中文。(Tôi học tiếng Trung mỗi ngày.)", topicTags: ["education"], level: "A1" },
     { word: "喜欢", pronunciation: "xǐ huān", meaningVi: "thích", exampleSentence: "我喜欢吃越南菜。(Tôi thích ăn món Việt.)", topicTags: ["daily", "verbs"], level: "A1" },
+    { word: "一", pronunciation: "yī", meaningVi: "một", exampleSentence: "我有一个苹果。(Tôi có một quả táo.)", topicTags: ["numbers"], level: "A1" },
+    { word: "二", pronunciation: "èr", meaningVi: "hai", exampleSentence: "我有二个朋友。(Tôi có hai người bạn.)", topicTags: ["numbers"], level: "A1" },
+    { word: "三", pronunciation: "sān", meaningVi: "ba", exampleSentence: "现在三点了。(Bây giờ là 3 giờ rồi.)", topicTags: ["numbers"], level: "A1" },
+    { word: "红色", pronunciation: "hóng sè", meaningVi: "màu đỏ", exampleSentence: "我喜欢红色。(Tôi thích màu đỏ.)", topicTags: ["colors"], level: "A1" },
+    { word: "蓝色", pronunciation: "lán sè", meaningVi: "màu xanh dương", exampleSentence: "天空是蓝色的。(Bầu trời màu xanh.)", topicTags: ["colors"], level: "A1" },
+    { word: "妈妈", pronunciation: "mā ma", meaningVi: "mẹ", exampleSentence: "我妈妈是老师。(Mẹ tôi là giáo viên.)", topicTags: ["family"], level: "A1" },
+    { word: "爸爸", pronunciation: "bà ba", meaningVi: "bố", exampleSentence: "我爸爸喜欢喝茶。(Bố tôi thích uống trà.)", topicTags: ["family"], level: "A1" },
+    { word: "今天", pronunciation: "jīn tiān", meaningVi: "hôm nay", exampleSentence: "今天天气很好。(Hôm nay thời tiết đẹp.)", topicTags: ["time"], level: "A1" },
+    { word: "明天", pronunciation: "míng tiān", meaningVi: "ngày mai", exampleSentence: "明天我要去学校。(Ngày mai tôi phải đi học.)", topicTags: ["time"], level: "A1" },
+    { word: "时间", pronunciation: "shí jiān", meaningVi: "thời gian", exampleSentence: "我没有时间。(Tôi không có thời gian.)", topicTags: ["time"], level: "A2" },
+    { word: "旅行", pronunciation: "lǚ xíng", meaningVi: "du lịch", exampleSentence: "我们下个月去旅行。(Tháng sau chúng tôi đi du lịch.)", topicTags: ["travel"], level: "A2" },
+    { word: "飞机", pronunciation: "fēi jī", meaningVi: "máy bay", exampleSentence: "我坐飞机去中国。(Tôi đi máy bay đến Trung Quốc.)", topicTags: ["travel"], level: "A2" },
+    { word: "医院", pronunciation: "yī yuàn", meaningVi: "bệnh viện", exampleSentence: "他在医院工作。(Anh ấy làm việc ở bệnh viện.)", topicTags: ["places"], level: "A2" },
+    { word: "便宜", pronunciation: "pián yi", meaningVi: "rẻ", exampleSentence: "这个手机很便宜。(Cái điện thoại này rất rẻ.)", topicTags: ["shopping", "adjectives"], level: "A2" },
   ];
 
   for (const word of chineseWords) {
@@ -155,6 +169,20 @@ export async function seedVocabulary(prisma: PrismaClient) {
     { word: "仕事", pronunciation: "shigoto", meaningVi: "công việc", exampleSentence: "仕事が好きです。(Tôi thích công việc.)", topicTags: ["work"], level: "A1" },
     { word: "勉強", pronunciation: "benkyou", meaningVi: "học tập", exampleSentence: "日本語を勉強しています。(Tôi đang học tiếng Nhật.)", topicTags: ["education"], level: "A1" },
     { word: "好き", pronunciation: "suki", meaningVi: "thích", exampleSentence: "音楽が好きです。(Tôi thích âm nhạc.)", topicTags: ["daily", "adjectives"], level: "A1" },
+    { word: "一", pronunciation: "ichi", meaningVi: "một", exampleSentence: "りんごが一つあります。(Có một quả táo.)", topicTags: ["numbers"], level: "A1" },
+    { word: "二", pronunciation: "ni", meaningVi: "hai", exampleSentence: "友達が二人います。(Tôi có hai người bạn.)", topicTags: ["numbers"], level: "A1" },
+    { word: "三", pronunciation: "san", meaningVi: "ba", exampleSentence: "今三時です。(Bây giờ là 3 giờ.)", topicTags: ["numbers"], level: "A1" },
+    { word: "赤い", pronunciation: "akai", meaningVi: "màu đỏ", exampleSentence: "赤い花が好きです。(Tôi thích hoa màu đỏ.)", topicTags: ["colors", "adjectives"], level: "A1" },
+    { word: "青い", pronunciation: "aoi", meaningVi: "màu xanh dương", exampleSentence: "空は青いです。(Bầu trời màu xanh.)", topicTags: ["colors", "adjectives"], level: "A1" },
+    { word: "母", pronunciation: "haha", meaningVi: "mẹ (của mình)", exampleSentence: "母は先生です。(Mẹ tôi là giáo viên.)", topicTags: ["family"], level: "A1" },
+    { word: "父", pronunciation: "chichi", meaningVi: "bố (của mình)", exampleSentence: "父はお茶が好きです。(Bố tôi thích trà.)", topicTags: ["family"], level: "A1" },
+    { word: "今日", pronunciation: "kyou", meaningVi: "hôm nay", exampleSentence: "今日は天気がいいです。(Hôm nay thời tiết đẹp.)", topicTags: ["time"], level: "A1" },
+    { word: "明日", pronunciation: "ashita", meaningVi: "ngày mai", exampleSentence: "明日学校に行きます。(Ngày mai tôi đi học.)", topicTags: ["time"], level: "A1" },
+    { word: "時間", pronunciation: "jikan", meaningVi: "thời gian", exampleSentence: "時間がありません。(Tôi không có thời gian.)", topicTags: ["time"], level: "A2" },
+    { word: "旅行", pronunciation: "ryokou", meaningVi: "du lịch", exampleSentence: "来月旅行します。(Tháng sau tôi đi du lịch.)", topicTags: ["travel"], level: "A2" },
+    { word: "飛行機", pronunciation: "hikouki", meaningVi: "máy bay", exampleSentence: "飛行機で日本に行きます。(Tôi đi máy bay đến Nhật.)", topicTags: ["travel"], level: "A2" },
+    { word: "病院", pronunciation: "byouin", meaningVi: "bệnh viện", exampleSentence: "彼は病院で働いています。(Anh ấy làm việc ở bệnh viện.)", topicTags: ["places"], level: "A2" },
+    { word: "安い", pronunciation: "yasui", meaningVi: "rẻ", exampleSentence: "この携帯は安いです。(Cái điện thoại này rẻ.)", topicTags: ["shopping", "adjectives"], level: "A2" },
   ];
 
   for (const word of japaneseWords) {

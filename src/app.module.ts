@@ -19,6 +19,7 @@ import { EmailModule } from "./common/email/email.module";
 import { StreakReminderTask } from "./common/scheduler/streak-reminder.task";
 import { NotificationsModule } from "./modules/notifications/notifications.module";
 import { CommunityModule } from "./modules/community/community.module";
+import { AdminModule } from "./modules/admin/admin.module";
 
 @Module({
   imports: [
@@ -44,6 +45,7 @@ import { CommunityModule } from "./modules/community/community.module";
     RoadmapModule,
     ContentModule,
     CommunityModule,
+    AdminModule,
   ],
   providers: [StreakReminderTask],
 })
