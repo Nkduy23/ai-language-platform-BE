@@ -61,4 +61,11 @@ export default () => ({
   sentry: {
     dsn: process.env.SENTRY_DSN,
   },
+
+  cookie: {
+    // Domain gốc để cookie share được giữa FE (www.flueni.id.vn) và BE (api.flueni.id.vn)
+    // Để trống ở local dev — browser tự dùng domain hiện tại
+    domain: process.env.COOKIE_DOMAIN || undefined,
+    secure: process.env.NODE_ENV === "production",
+  },
 });

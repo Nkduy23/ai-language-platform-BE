@@ -1,6 +1,7 @@
 import { NestFactory } from "@nestjs/core";
 import { ValidationPipe } from "@nestjs/common";
 import helmet from "helmet";
+import cookieParser from "cookie-parser";
 import * as Sentry from "@sentry/node";
 import { AppModule } from "./app.module";
 import { AllExceptionsFilter } from "./common/filters/http-exception.filter";
@@ -15,6 +16,7 @@ async function bootstrap() {
 
   // Security
   app.use(helmet());
+  app.use(cookieParser());
 
   // CORS
   app.enableCors({
