@@ -223,6 +223,61 @@ export async function seedQuiz(prisma: PrismaClient) {
       correctAns: "was written",
       explanation: "Câu bị động thì quá khứ đơn: was/were + V3.",
     },
+    // ── MULTIPLE CHOICE B2 ────────────────────────────────────────────────────
+    {
+      id: "q-en-mc-b2-01",
+      type: "MULTIPLE_CHOICE",
+      level: "B2",
+      question: "The man ___ car was stolen called the police.",
+      options: ["who", "whom", "whose", "which"],
+      correctAns: "whose",
+      explanation: "whose dùng để chỉ sở hữu trong mệnh đề quan hệ.",
+    },
+    {
+      id: "q-en-mc-b2-02",
+      type: "MULTIPLE_CHOICE",
+      level: "B2",
+      question: "I wish I ___ harder for the exam last week.",
+      options: ["study", "studied", "had studied", "would study"],
+      correctAns: "had studied",
+      explanation: "Wish + Past Perfect diễn tả sự hối tiếc về quá khứ.",
+    },
+    {
+      id: "q-en-mc-b2-03",
+      type: "MULTIPLE_CHOICE",
+      level: "B2",
+      question: "This bridge ___ in 1998.",
+      options: ["built", "was built", "is built", "has built"],
+      correctAns: "was built",
+      explanation: "Bị động thì quá khứ đơn cho sự kiện lịch sử đã hoàn thành.",
+    },
+    {
+      id: "q-en-fill-b2-01",
+      type: "FILL_BLANK",
+      level: "B2",
+      question: "She said she ___ (finish) the project by Friday.",
+      options: null,
+      correctAns: "would have finished",
+      explanation: "Tường thuật câu tương lai hoàn thành: will have + V3 → would have + V3.",
+    },
+    {
+      id: "q-en-mc-b2-04",
+      type: "MULTIPLE_CHOICE",
+      level: "B2",
+      question: "The book ___ I bought yesterday is fascinating.",
+      options: ["who", "whose", "that", "where"],
+      correctAns: "that",
+      explanation: "that (hoặc which) thay thế cho vật làm tân ngữ trong mệnh đề quan hệ xác định.",
+    },
+    {
+      id: "q-en-mc-b2-05",
+      type: "MULTIPLE_CHOICE",
+      level: "B2",
+      question: "If only I ___ about the meeting earlier!",
+      options: ["know", "knew", "had known", "would know"],
+      correctAns: "had known",
+      explanation: "If only + Past Perfect diễn tả sự hối tiếc về quá khứ, tương tự wish.",
+    },
   ];
 
   for (const q of questions) {
@@ -242,7 +297,7 @@ export async function seedQuiz(prisma: PrismaClient) {
     });
   }
 
-  console.log(`  ✓ Quiz EN seeded: ${questions.length} câu hỏi (A1→B1)`);
+  console.log(`  ✓ Quiz EN seeded: ${questions.length} câu hỏi (A1→B2)`);
 
   // ── Tiếng Trung ──────────────────────────────────────────────────────────
   const zhLang = await prisma.language.findUnique({ where: { code: "ZH" } });
@@ -321,6 +376,60 @@ export async function seedQuiz(prisma: PrismaClient) {
       correctAns: "两 (liǎng)",
       explanation: "两 dùng khi đếm số lượng trước lượng từ, 二 dùng khi đếm số thứ tự/số học thông thường.",
     },
+    {
+      id: "q-zh-mc-b1-01",
+      type: "MULTIPLE_CHOICE",
+      level: "B1",
+      question: "我___他高。(Tôi cao hơn anh ấy.) — chọn từ đúng",
+      options: ["是", "比", "的", "了"],
+      correctAns: "比",
+      explanation: '比 (bǐ) dùng trong cấu trúc so sánh "A比B+tính từ".',
+    },
+    {
+      id: "q-zh-mc-b1-02",
+      type: "MULTIPLE_CHOICE",
+      level: "B1",
+      question: 'Câu nào đúng khi nói "Tôi không cao bằng anh ấy"?',
+      options: ["我不比他高。", "我没有他高。", "我比他不高。", "我不是他高。"],
+      correctAns: "我没有他高。",
+      explanation: "Phủ định của câu so sánh 比 dùng 没有, không dùng 不比.",
+    },
+    {
+      id: "q-zh-mc-b1-03",
+      type: "MULTIPLE_CHOICE",
+      level: "B1",
+      question: '"听得懂" nghĩa là gì?',
+      options: ["Nghe không hiểu", "Nghe hiểu được", "Không muốn nghe", "Nghe rất to"],
+      correctAns: "Nghe hiểu được",
+      explanation: "得 + bổ ngữ kết quả diễn tả khả năng đạt được kết quả của hành động.",
+    },
+    {
+      id: "q-zh-fill-b1-01",
+      type: "FILL_BLANK",
+      level: "B1",
+      question: "这个字太小，我看___见。(Chữ này quá nhỏ, tôi không nhìn thấy.)",
+      options: null,
+      correctAns: "不",
+      explanation: "看不见 — bổ ngữ khả năng thể phủ định: Động từ + 不 + bổ ngữ.",
+    },
+    {
+      id: "q-zh-mc-b1-04",
+      type: "MULTIPLE_CHOICE",
+      level: "A2",
+      question: '"这本书怎么样？" (nghĩa gần đúng nhất)',
+      options: ["Quyển sách này bao nhiêu tiền?", "Quyển sách này thế nào?", "Quyển sách này ở đâu?", "Đây là quyển sách gì?"],
+      correctAns: "Quyển sách này thế nào?",
+      explanation: "怎么样 (zěnmeyàng) dùng để hỏi ý kiến/đánh giá về điều gì đó.",
+    },
+    {
+      id: "q-zh-mc-b1-05",
+      type: "MULTIPLE_CHOICE",
+      level: "B1",
+      question: 'Chọn câu đúng nghĩa "Tôi cao bằng anh ấy":',
+      options: ["我跟他一样高。", "我比他一样高。", "我和他比高。", "我是他一样高。"],
+      correctAns: "我跟他一样高。",
+      explanation: "Cấu trúc so sánh ngang bằng: A 跟 B 一样 + tính từ.",
+    },
   ];
 
   for (const q of zhQuestions) {
@@ -339,7 +448,7 @@ export async function seedQuiz(prisma: PrismaClient) {
       },
     });
   }
-  console.log(`  ✓ Quiz ZH seeded: ${zhQuestions.length} câu hỏi (A1→A2)`);
+  console.log(`  ✓ Quiz ZH seeded: ${zhQuestions.length} câu hỏi (A1→B1)`);
 
   // ── Tiếng Nhật ───────────────────────────────────────────────────────────
   const jaLang = await prisma.language.findUnique({ where: { code: "JA" } });
@@ -418,6 +527,60 @@ export async function seedQuiz(prisma: PrismaClient) {
       correctAns: "に",
       explanation: "に dùng cho thời điểm cụ thể và điểm đến.",
     },
+    {
+      id: "q-ja-mc-b1-01",
+      type: "MULTIPLE_CHOICE",
+      level: "B1",
+      question: "Chọn thể て đúng của 飲む (uống):",
+      options: ["飲て", "飲んで", "飲いて", "飲した"],
+      correctAns: "飲んで",
+      explanation: "Động từ đuôi む chuyển thể て thành んで: 飲む→飲んで.",
+    },
+    {
+      id: "q-ja-mc-b1-02",
+      type: "MULTIPLE_CHOICE",
+      level: "B1",
+      question: '"ここに座ってください" nghĩa là gì?',
+      options: ["Tôi ngồi ở đây", "Xin hãy ngồi đây", "Bạn có thể ngồi đây không?", "Đừng ngồi đây"],
+      correctAns: "Xin hãy ngồi đây",
+      explanation: "～てください là mẫu câu yêu cầu lịch sự, dùng thể て + ください.",
+    },
+    {
+      id: "q-ja-mc-b1-03",
+      type: "MULTIPLE_CHOICE",
+      level: "B1",
+      question: "日本語は英語___難しいです。(Tiếng Nhật khó hơn tiếng Anh.)",
+      options: ["が", "より", "ほう", "でも"],
+      correctAns: "より",
+      explanation: 'より dùng trong cấu trúc so sánh "A は B より + tính từ".',
+    },
+    {
+      id: "q-ja-fill-b1-01",
+      type: "FILL_BLANK",
+      level: "B1",
+      question: "今、食べ___います。(Bây giờ tôi đang ăn.) — điền phần còn thiếu của thể tiếp diễn",
+      options: null,
+      correctAns: "て",
+      explanation: "Thể tiếp diễn: Động từ thể て + います.",
+    },
+    {
+      id: "q-ja-mc-b1-04",
+      type: "MULTIPLE_CHOICE",
+      level: "B1",
+      question: "入って___いいですか？(Tôi vào được không?) — điền trợ từ",
+      options: ["が", "も", "は", "を"],
+      correctAns: "も",
+      explanation: "～てもいいですか là mẫu câu xin phép.",
+    },
+    {
+      id: "q-ja-mc-b1-05",
+      type: "MULTIPLE_CHOICE",
+      level: "B1",
+      question: 'Chọn câu đúng nghĩa "Anh tôi cao ngang bố tôi":',
+      options: ["兄は父より背が高いです。", "兄は父と同じぐらい背が高いです。", "兄は父ほど高くないです。", "兄は父が高いです。"],
+      correctAns: "兄は父と同じぐらい背が高いです。",
+      explanation: "So sánh ngang bằng: A は B と 同じぐらい + tính từ.",
+    },
   ];
 
   for (const q of jaQuestions) {
@@ -436,5 +599,5 @@ export async function seedQuiz(prisma: PrismaClient) {
       },
     });
   }
-  console.log(`  ✓ Quiz JA seeded: ${jaQuestions.length} câu hỏi (A1→A2)`);
+  console.log(`  ✓ Quiz JA seeded: ${jaQuestions.length} câu hỏi (A1→B1)`);
 }

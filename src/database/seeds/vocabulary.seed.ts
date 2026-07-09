@@ -83,6 +83,34 @@ export async function seedVocabulary(prisma: PrismaClient) {
     { word: "small", pronunciation: "/smɔːl/", meaningVi: "nhỏ bé", exampleSentence: "She has a small cat.", topicTags: ["adjectives"], level: "A1" },
     { word: "good", pronunciation: "/ɡʊd/", meaningVi: "tốt, ngon", exampleSentence: "This food is very good.", topicTags: ["adjectives", "daily"], level: "A1" },
     { word: "beautiful", pronunciation: "/ˈbjuː.tɪ.fəl/", meaningVi: "đẹp", exampleSentence: "Vietnam is a beautiful country.", topicTags: ["adjectives"], level: "A1" },
+    { word: "achieve", pronunciation: "/əˈtʃiːv/", meaningVi: "đạt được", exampleSentence: "She achieved her goal after years of hard work.", topicTags: ["business", "verbs"], level: "B1" },
+    { word: "opportunity", pronunciation: "/ˌɒp.əˈtʃuː.nə.ti/", meaningVi: "cơ hội", exampleSentence: "This job is a great opportunity for me.", topicTags: ["business"], level: "B1" },
+    { word: "environment", pronunciation: "/ɪnˈvaɪ.rən.mənt/", meaningVi: "môi trường", exampleSentence: "We should protect the environment.", topicTags: ["nature"], level: "B1" },
+    { word: "improve", pronunciation: "/ɪmˈpruːv/", meaningVi: "cải thiện", exampleSentence: "I want to improve my English skills.", topicTags: ["verbs", "education"], level: "B1" },
+    { word: "consider", pronunciation: "/kənˈsɪd.ər/", meaningVi: "cân nhắc, xem xét", exampleSentence: "Please consider my proposal carefully.", topicTags: ["business", "verbs"], level: "B1" },
+    { word: "negotiate", pronunciation: "/nɪˈɡəʊ.ʃi.eɪt/", meaningVi: "đàm phán", exampleSentence: "They negotiated a better contract.", topicTags: ["business"], level: "B2" },
+    {
+      word: "significant",
+      pronunciation: "/sɪɡˈnɪf.ɪ.kənt/",
+      meaningVi: "đáng kể, quan trọng",
+      exampleSentence: "There was a significant increase in sales.",
+      topicTags: ["business", "adjectives"],
+      level: "B2",
+    },
+    { word: "perspective", pronunciation: "/pəˈspek.tɪv/", meaningVi: "quan điểm, góc nhìn", exampleSentence: "Try to see it from her perspective.", topicTags: ["abstract"], level: "B2" },
+    {
+      word: "sustainable",
+      pronunciation: "/səˈsteɪ.nə.bəl/",
+      meaningVi: "bền vững",
+      exampleSentence: "We need sustainable solutions for climate change.",
+      topicTags: ["nature", "adjectives"],
+      level: "B2",
+    },
+    { word: "colleague", pronunciation: "/ˈkɒl.iːɡ/", meaningVi: "đồng nghiệp", exampleSentence: "My colleague helped me finish the report.", topicTags: ["business"], level: "B1" },
+    { word: "deadline", pronunciation: "/ˈded.laɪn/", meaningVi: "hạn chót", exampleSentence: "The deadline for this project is Friday.", topicTags: ["business"], level: "B1" },
+    { word: "confident", pronunciation: "/ˈkɒn.fɪ.dənt/", meaningVi: "tự tin", exampleSentence: "She felt confident before the interview.", topicTags: ["adjectives", "emotions"], level: "B1" },
+    { word: "flexible", pronunciation: "/ˈflek.sɪ.bəl/", meaningVi: "linh hoạt", exampleSentence: "My work schedule is very flexible.", topicTags: ["adjectives", "business"], level: "B1" },
+    { word: "efficient", pronunciation: "/ɪˈfɪʃ.ənt/", meaningVi: "hiệu quả", exampleSentence: "This is a more efficient way to work.", topicTags: ["adjectives", "business"], level: "B2" },
   ];
 
   for (const word of englishWords) {
@@ -131,6 +159,16 @@ export async function seedVocabulary(prisma: PrismaClient) {
     { word: "飞机", pronunciation: "fēi jī", meaningVi: "máy bay", exampleSentence: "我坐飞机去中国。(Tôi đi máy bay đến Trung Quốc.)", topicTags: ["travel"], level: "A2" },
     { word: "医院", pronunciation: "yī yuàn", meaningVi: "bệnh viện", exampleSentence: "他在医院工作。(Anh ấy làm việc ở bệnh viện.)", topicTags: ["places"], level: "A2" },
     { word: "便宜", pronunciation: "pián yi", meaningVi: "rẻ", exampleSentence: "这个手机很便宜。(Cái điện thoại này rất rẻ.)", topicTags: ["shopping", "adjectives"], level: "A2" },
+    { word: "工作", pronunciation: "gōng zuò", meaningVi: "công việc", exampleSentence: "我的工作很有意思。(Công việc của tôi rất thú vị.)", topicTags: ["business"], level: "B1" },
+    { word: "经验", pronunciation: "jīng yàn", meaningVi: "kinh nghiệm", exampleSentence: "他有很多工作经验。(Anh ấy có nhiều kinh nghiệm làm việc.)", topicTags: ["business"], level: "B1" },
+    { word: "机会", pronunciation: "jī huì", meaningVi: "cơ hội", exampleSentence: "这是一个好机会。(Đây là một cơ hội tốt.)", topicTags: ["business"], level: "B1" },
+    { word: "环境", pronunciation: "huán jìng", meaningVi: "môi trường", exampleSentence: "我们要保护环境。(Chúng ta phải bảo vệ môi trường.)", topicTags: ["nature"], level: "B1" },
+    { word: "解决", pronunciation: "jiě jué", meaningVi: "giải quyết", exampleSentence: "我们需要解决这个问题。(Chúng ta cần giải quyết vấn đề này.)", topicTags: ["verbs", "business"], level: "B1" },
+    { word: "同事", pronunciation: "tóng shì", meaningVi: "đồng nghiệp", exampleSentence: "我的同事很友好。(Đồng nghiệp của tôi rất thân thiện.)", topicTags: ["business"], level: "B1" },
+    { word: "自信", pronunciation: "zì xìn", meaningVi: "tự tin", exampleSentence: "面试的时候要自信。(Lúc phỏng vấn phải tự tin.)", topicTags: ["adjectives", "emotions"], level: "B1" },
+    { word: "压力", pronunciation: "yā lì", meaningVi: "áp lực, căng thẳng", exampleSentence: "工作压力很大。(Áp lực công việc rất lớn.)", topicTags: ["emotions", "business"], level: "B1" },
+    { word: "成功", pronunciation: "chéng gōng", meaningVi: "thành công", exampleSentence: "他终于成功了。(Cuối cùng anh ấy đã thành công.)", topicTags: ["abstract"], level: "B1" },
+    { word: "决定", pronunciation: "jué dìng", meaningVi: "quyết định", exampleSentence: "这是一个重要的决定。(Đây là một quyết định quan trọng.)", topicTags: ["abstract", "business"], level: "B1" },
   ];
 
   for (const word of chineseWords) {
@@ -183,6 +221,30 @@ export async function seedVocabulary(prisma: PrismaClient) {
     { word: "飛行機", pronunciation: "hikouki", meaningVi: "máy bay", exampleSentence: "飛行機で日本に行きます。(Tôi đi máy bay đến Nhật.)", topicTags: ["travel"], level: "A2" },
     { word: "病院", pronunciation: "byouin", meaningVi: "bệnh viện", exampleSentence: "彼は病院で働いています。(Anh ấy làm việc ở bệnh viện.)", topicTags: ["places"], level: "A2" },
     { word: "安い", pronunciation: "yasui", meaningVi: "rẻ", exampleSentence: "この携帯は安いです。(Cái điện thoại này rẻ.)", topicTags: ["shopping", "adjectives"], level: "A2" },
+    { word: "経験", pronunciation: "keiken", meaningVi: "kinh nghiệm", exampleSentence: "彼は仕事の経験があります。(Anh ấy có kinh nghiệm làm việc.)", topicTags: ["work"], level: "B1" },
+    { word: "機会", pronunciation: "kikai", meaningVi: "cơ hội", exampleSentence: "これはいい機会です。(Đây là một cơ hội tốt.)", topicTags: ["work"], level: "B1" },
+    { word: "環境", pronunciation: "kankyou", meaningVi: "môi trường", exampleSentence: "環境を守らなければなりません。(Chúng ta phải bảo vệ môi trường.)", topicTags: ["nature"], level: "B1" },
+    { word: "解決", pronunciation: "kaiketsu", meaningVi: "giải quyết", exampleSentence: "この問題を解決する必要があります。(Cần giải quyết vấn đề này.)", topicTags: ["verbs", "work"], level: "B1" },
+    { word: "同僚", pronunciation: "douryou", meaningVi: "đồng nghiệp", exampleSentence: "同僚はとても親切です。(Đồng nghiệp của tôi rất tốt bụng.)", topicTags: ["work"], level: "B1" },
+    {
+      word: "自信",
+      pronunciation: "jishin",
+      meaningVi: "tự tin",
+      exampleSentence: "面接の時、自信を持ってください。(Lúc phỏng vấn hãy tự tin nhé.)",
+      topicTags: ["adjectives", "emotions"],
+      level: "B1",
+    },
+    {
+      word: "ストレス",
+      pronunciation: "sutoresu",
+      meaningVi: "căng thẳng, áp lực",
+      exampleSentence: "仕事のストレスが多いです。(Áp lực công việc rất nhiều.)",
+      topicTags: ["emotions", "work"],
+      level: "B1",
+    },
+    { word: "成功", pronunciation: "seikou", meaningVi: "thành công", exampleSentence: "彼はついに成功しました。(Cuối cùng anh ấy đã thành công.)", topicTags: ["abstract"], level: "B1" },
+    { word: "決める", pronunciation: "kimeru", meaningVi: "quyết định", exampleSentence: "まだ決めていません。(Tôi vẫn chưa quyết định.)", topicTags: ["verbs", "abstract"], level: "B1" },
+    { word: "締め切り", pronunciation: "shimekiri", meaningVi: "hạn chót", exampleSentence: "締め切りは金曜日です。(Hạn chót là thứ Sáu.)", topicTags: ["work"], level: "B1" },
   ];
 
   for (const word of japaneseWords) {
