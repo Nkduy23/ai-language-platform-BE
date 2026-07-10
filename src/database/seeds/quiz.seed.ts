@@ -278,6 +278,78 @@ export async function seedQuiz(prisma: PrismaClient) {
       correctAns: "had known",
       explanation: "If only + Past Perfect diễn tả sự hối tiếc về quá khứ, tương tự wish.",
     },
+    {
+      id: "q-en-mc-c1-01",
+      type: "MULTIPLE_CHOICE",
+      level: "C1",
+      question: "___ have I seen such a beautiful sunset.",
+      options: ["Never", "I never", "Never I", "Not never"],
+      correctAns: "Never",
+      explanation: 'Đảo ngữ với "Never" đứng đầu câu: Never + trợ động từ + S + V.',
+    },
+    {
+      id: "q-en-mc-c1-02",
+      type: "MULTIPLE_CHOICE",
+      level: "C1",
+      question: "If I had studied medicine, I ___ a doctor now.",
+      options: ["would be", "would have been", "will be", "was"],
+      correctAns: "would be",
+      explanation: "Mixed conditional: điều kiện quá khứ (had studied) → kết quả hiện tại (would be).",
+    },
+    {
+      id: "q-en-fill-c1-01",
+      type: "FILL_BLANK",
+      level: "C1",
+      question: "Not only ___ she pass the exam, but she also got the highest score.",
+      options: null,
+      correctAns: "did",
+      explanation: 'Đảo ngữ với "Not only" đứng đầu câu cần trợ động từ did trước chủ ngữ.',
+    },
+    {
+      id: "q-en-mc-c1-03",
+      type: "MULTIPLE_CHOICE",
+      level: "C1",
+      question: "If I weren't afraid of heights, I ___ skydiving last month.",
+      options: ["would go", "would have gone", "will go", "went"],
+      correctAns: "would have gone",
+      explanation: "Mixed conditional: tính chất hiện tại (weren't afraid) → kết quả quá khứ (would have gone).",
+    },
+    {
+      id: "q-en-mc-c2-01",
+      type: "MULTIPLE_CHOICE",
+      level: "C2",
+      question: "___ was John who broke the window.",
+      options: ["This", "It", "That", "He"],
+      correctAns: "It",
+      explanation: 'It-cleft: "It + be + thành phần nhấn mạnh + that/who" để nhấn mạnh chủ thể.',
+    },
+    {
+      id: "q-en-mc-c2-02",
+      type: "MULTIPLE_CHOICE",
+      level: "C2",
+      question: "___ I need is a good night's sleep.",
+      options: ["It", "What", "That", "This"],
+      correctAns: "What",
+      explanation: "What-cleft dùng để nhấn mạnh 1 ý tưởng/nhu cầu trừu tượng.",
+    },
+    {
+      id: "q-en-fill-c2-01",
+      type: "FILL_BLANK",
+      level: "C2",
+      question: '___ I known about the traffic, I would have left earlier. (đảo ngữ trang trọng của "If I had known")',
+      options: null,
+      correctAns: "Had",
+      explanation: 'Đảo ngữ điều kiện loại 3 trang trọng: Had + S + V3, bỏ "If".',
+    },
+    {
+      id: "q-en-mc-c2-03",
+      type: "MULTIPLE_CHOICE",
+      level: "C2",
+      question: 'Chọn câu đảo ngữ đúng nghĩa "If I were in your position, I would accept the offer":',
+      options: ["I were in your position...", "Were I in your position...", "If were I...", "Was I in your position..."],
+      correctAns: "Were I in your position...",
+      explanation: 'Đảo ngữ điều kiện loại 2 trang trọng: Were + S..., bỏ "If".',
+    },
   ];
 
   for (const q of questions) {
@@ -297,7 +369,7 @@ export async function seedQuiz(prisma: PrismaClient) {
     });
   }
 
-  console.log(`  ✓ Quiz EN seeded: ${questions.length} câu hỏi (A1→B2)`);
+  console.log(`  ✓ Quiz EN seeded: ${questions.length} câu hỏi (A1→C2)`);
 
   // ── Tiếng Trung ──────────────────────────────────────────────────────────
   const zhLang = await prisma.language.findUnique({ where: { code: "ZH" } });
@@ -430,6 +502,78 @@ export async function seedQuiz(prisma: PrismaClient) {
       correctAns: "我跟他一样高。",
       explanation: "Cấu trúc so sánh ngang bằng: A 跟 B 一样 + tính từ.",
     },
+    {
+      id: "q-zh-mc-b2-01",
+      type: "MULTIPLE_CHOICE",
+      level: "B2",
+      question: "我___书放在桌子上了。(Tôi đã đặt sách lên bàn.) — chọn từ đúng",
+      options: ["把", "被", "比", "的"],
+      correctAns: "把",
+      explanation: "把 dùng để nhấn mạnh việc xử lý 1 đối tượng cụ thể và kết quả.",
+    },
+    {
+      id: "q-zh-mc-b2-02",
+      type: "MULTIPLE_CHOICE",
+      level: "B2",
+      question: '"我的钱包被偷了" nghĩa là gì?',
+      options: ["Tôi đánh rơi ví", "Ví của tôi bị lấy trộm", "Tôi mua một cái ví", "Ví của tôi rất đẹp"],
+      correctAns: "Ví của tôi bị lấy trộm",
+      explanation: "被 (bèi) tạo câu bị động, thường mang sắc thái không may mắn/tiêu cực.",
+    },
+    {
+      id: "q-zh-fill-b2-01",
+      type: "FILL_BLANK",
+      level: "B2",
+      question: "请___门关上。(Xin hãy đóng cửa lại.)",
+      options: null,
+      correctAns: "把",
+      explanation: "Câu 把 dùng khi yêu cầu xử lý 1 đối tượng cụ thể (cánh cửa) với kết quả rõ ràng (đóng lại).",
+    },
+    {
+      id: "q-zh-mc-b2-03",
+      type: "MULTIPLE_CHOICE",
+      level: "B2",
+      question: "Câu nào đúng ngữ pháp?",
+      options: ["我把书看。", "我把书看完了。", "书把我看完了。", "我把看书完了。"],
+      correctAns: "我把书看完了。",
+      explanation: "Động từ trong câu 把 bắt buộc phải có bổ ngữ kết quả đi kèm (完了), không thể đứng trơ trọi.",
+    },
+    {
+      id: "q-zh-mc-c1-01",
+      type: "MULTIPLE_CHOICE",
+      level: "C1",
+      question: "她___聪明，___很努力。(Cô ấy không những thông minh mà còn rất chăm chỉ.)",
+      options: ["虽然...但是", "不但...而且", "既然...就", "除非...否则"],
+      correctAns: "不但...而且",
+      explanation: '不但...而且 nghĩa là "không những...mà còn", diễn tả tăng tiến.',
+    },
+    {
+      id: "q-zh-mc-c1-02",
+      type: "MULTIPLE_CHOICE",
+      level: "C1",
+      question: '"他走进来了" nghĩa là gì?',
+      options: ["Anh ấy chạy ra ngoài", "Anh ấy đi vào (phía người nói)", "Anh ấy đứng lại", "Anh ấy đi ra (xa người nói)"],
+      correctAns: "Anh ấy đi vào (phía người nói)",
+      explanation: "进来 là bổ ngữ xu hướng phức hợp: 进 (vào) + 来 (về phía người nói).",
+    },
+    {
+      id: "q-zh-fill-c1-01",
+      type: "FILL_BLANK",
+      level: "C1",
+      question: "___你已经决定了，我们就支持你。(Đã như vậy bạn quyết định rồi thì chúng tôi ủng hộ bạn.)",
+      options: null,
+      correctAns: "既然",
+      explanation: '既然...就 nghĩa là "đã như vậy...thì", diễn tả suy luận từ 1 sự thật đã biết.',
+    },
+    {
+      id: "q-zh-mc-c1-03",
+      type: "MULTIPLE_CHOICE",
+      level: "C1",
+      question: '"想起来" nghĩa bóng là gì?',
+      options: ["Đứng dậy", "Nhớ ra, chợt nghĩ ra", "Đi lên trên", "Nói to lên"],
+      correctAns: "Nhớ ra, chợt nghĩ ra",
+      explanation: '想起来 là nghĩa bóng của bổ ngữ xu hướng 起来, không phải nghĩa đen "nghĩ lên".',
+    },
   ];
 
   for (const q of zhQuestions) {
@@ -448,7 +592,7 @@ export async function seedQuiz(prisma: PrismaClient) {
       },
     });
   }
-  console.log(`  ✓ Quiz ZH seeded: ${zhQuestions.length} câu hỏi (A1→B1)`);
+  console.log(`  ✓ Quiz ZH seeded: ${zhQuestions.length} câu hỏi (A1→C1)`);
 
   // ── Tiếng Nhật ───────────────────────────────────────────────────────────
   const jaLang = await prisma.language.findUnique({ where: { code: "JA" } });
@@ -581,6 +725,78 @@ export async function seedQuiz(prisma: PrismaClient) {
       correctAns: "兄は父と同じぐらい背が高いです。",
       explanation: "So sánh ngang bằng: A は B と 同じぐらい + tính từ.",
     },
+    {
+      id: "q-ja-mc-b2-01",
+      type: "MULTIPLE_CHOICE",
+      level: "B2",
+      question: "私は先生に___。(Tôi được thầy khen.) — chọn thể bị động đúng của 褒める",
+      options: ["褒めます", "褒められました", "褒めさせました", "褒めています"],
+      correctAns: "褒められました",
+      explanation: "Thể bị động của động từ nhóm II: bỏ る thêm られる.",
+    },
+    {
+      id: "q-ja-mc-b2-02",
+      type: "MULTIPLE_CHOICE",
+      level: "B2",
+      question: '"雨に降られました" diễn tả ý nghĩa gì?',
+      options: ["Tôi thích mưa", "Tôi bị mắc mưa (phiền toái)", "Trời sắp mưa", "Tôi làm mưa rơi"],
+      correctAns: "Tôi bị mắc mưa (phiền toái)",
+      explanation: 'Đây là "bị động gây phiền" (迷惑受身) — đặc trưng riêng của tiếng Nhật.',
+    },
+    {
+      id: "q-ja-fill-b2-01",
+      type: "FILL_BLANK",
+      level: "B2",
+      question: "母は子供に野菜を食べ___ました。(Mẹ bắt con ăn rau.) — điền thể sai khiến",
+      options: null,
+      correctAns: "させ",
+      explanation: "Thể sai khiến của động từ nhóm II: bỏ る thêm させる.",
+    },
+    {
+      id: "q-ja-mc-b2-03",
+      type: "MULTIPLE_CHOICE",
+      level: "B2",
+      question: '"私は毎日残業させられます" nghĩa là gì?',
+      options: ["Tôi thích làm thêm giờ", "Tôi bị bắt làm thêm giờ mỗi ngày", "Tôi cho phép làm thêm giờ", "Tôi không làm thêm giờ"],
+      correctAns: "Tôi bị bắt làm thêm giờ mỗi ngày",
+      explanation: "Thể sai khiến bị động (使役受身) diễn tả bị buộc làm điều không muốn.",
+    },
+    {
+      id: "q-ja-mc-c1-01",
+      type: "MULTIPLE_CHOICE",
+      level: "C1",
+      question: "Chọn Tôn kính ngữ đúng của 行く (đi) khi nói về cấp trên:",
+      options: ["参る", "いたす", "いらっしゃる", "申す"],
+      correctAns: "いらっしゃる",
+      explanation: "いらっしゃる là Tôn kính ngữ, dùng để nâng cao hành động của người khác (cấp trên/khách).",
+    },
+    {
+      id: "q-ja-mc-c1-02",
+      type: "MULTIPLE_CHOICE",
+      level: "C1",
+      question: "Chọn Khiêm nhường ngữ đúng của 行く khi nói về bản thân với cấp trên:",
+      options: ["いらっしゃる", "参る", "おっしゃる", "召し上がる"],
+      correctAns: "参る",
+      explanation: "参る là Khiêm nhường ngữ, dùng để hạ thấp hành động của bản thân.",
+    },
+    {
+      id: "q-ja-mc-c1-03",
+      type: "MULTIPLE_CHOICE",
+      level: "C1",
+      question: "Câu nào diễn tả thông tin nghe được từ dự báo thời tiết (truyền văn)?",
+      options: ["雨が降るらしい", "雨が降るそうだ", "雨が降るようだ", "雨が降るみたい"],
+      correctAns: "雨が降るそうだ",
+      explanation: "そうだ dùng khi thuật lại thông tin nghe/đọc được từ nguồn khác (vd dự báo thời tiết).",
+    },
+    {
+      id: "q-ja-fill-c1-01",
+      type: "FILL_BLANK",
+      level: "C1",
+      question: "部屋の電気が消えている。誰もいない___だ。(Đèn phòng tắt rồi. Có vẻ như không có ai ở đó.) — điền từ suy đoán dựa trên quan sát trực tiếp",
+      options: null,
+      correctAns: "よう",
+      explanation: "ようだ dùng khi suy đoán dựa trên quan sát/cảm nhận trực tiếp của người nói.",
+    },
   ];
 
   for (const q of jaQuestions) {
@@ -599,5 +815,5 @@ export async function seedQuiz(prisma: PrismaClient) {
       },
     });
   }
-  console.log(`  ✓ Quiz JA seeded: ${jaQuestions.length} câu hỏi (A1→B1)`);
+  console.log(`  ✓ Quiz JA seeded: ${jaQuestions.length} câu hỏi (A1→C1)`);
 }

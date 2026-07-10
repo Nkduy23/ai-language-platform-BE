@@ -526,6 +526,134 @@ Chỉ động từ TRẠNG TỪ (transitive verbs — có tân ngữ) mới chuy
 | wish + Past Perfect | Ước quá khứ (hối tiếc) |
 | wish + would | Mong người khác thay đổi |`,
     },
+    // ── C1 ────────────────────────────────────────────────────────────────────
+    {
+      id: "en-grammar-c1-01",
+      title: "Đảo ngữ (Inversion) trong câu nhấn mạnh",
+      level: "C1",
+      orderIndex: 1,
+      content: `# Đảo ngữ (Inversion)
+
+## Khái niệm
+Đảo ngữ là đưa trợ động từ lên trước chủ ngữ để nhấn mạnh, thường dùng trong văn viết trang trọng.
+
+## Với trạng từ phủ định đứng đầu câu
+Never, Rarely, Seldom, Not only, No sooner, Hardly + trợ động từ + S + V
+
+> **Never have I seen** such a beautiful sunset.
+> **Not only did she pass** the exam, but she also got the highest score.
+> **Hardly had I arrived** when the phone rang.
+
+## Với "Only" + cụm trạng từ
+> **Only after** the meeting **did he realize** his mistake.
+> **Only then did I understand** what she meant.
+
+## Với "So/Such...that"
+> **So beautiful was the view that** we stayed for hours.
+> **Such was his anger that** he couldn't speak.
+
+## Lưu ý
+Đảo ngữ chủ yếu dùng trong văn viết học thuật/trang trọng, IELTS Writing Task 2 band cao — ít dùng trong giao tiếp hàng ngày.`,
+    },
+    {
+      id: "en-grammar-c1-02",
+      title: "Câu điều kiện hỗn hợp (Mixed Conditionals)",
+      level: "C1",
+      orderIndex: 2,
+      content: `# Câu điều kiện hỗn hợp (Mixed Conditionals)
+
+## Loại 1: Điều kiện quá khứ → Kết quả hiện tại
+**If + Past Perfect, would + V (bare)**
+
+> If I **had studied** medicine, I **would be** a doctor now.
+> (Thực tế: tôi đã không học y, nên bây giờ tôi không phải bác sĩ)
+
+## Loại 2: Điều kiện hiện tại (luôn đúng) → Kết quả quá khứ
+**If + Past Simple, would have + V3**
+
+> If I **weren't** afraid of heights, I **would have gone** skydiving.
+> (Thực tế: tôi luôn sợ độ cao — tính cách không đổi, nên trong quá khứ tôi đã không đi nhảy dù)
+
+## So sánh với Conditional thường
+| Loại | Vế If | Vế chính | Ý nghĩa |
+|---|---|---|---|
+| Type 2 thường | Past Simple | would + V | Giả định hiện tại → kết quả hiện tại |
+| Type 3 thường | Past Perfect | would have + V3 | Giả định quá khứ → kết quả quá khứ |
+| Mixed 1 | Past Perfect | would + V | Giả định quá khứ → kết quả HIỆN TẠI |
+| Mixed 2 | Past Simple | would have + V3 | Giả định hiện tại (tính chất) → kết quả QUÁ KHỨ |
+
+## Mẹo phân biệt
+Xác định THỜI ĐIỂM của từng vế câu riêng biệt — nếu 2 vế không cùng thời điểm, đó là mixed conditional.`,
+    },
+    // ── C2 ────────────────────────────────────────────────────────────────────
+    {
+      id: "en-grammar-c2-01",
+      title: "Cấu trúc nhấn mạnh nâng cao (Cleft Sentences)",
+      level: "C2",
+      orderIndex: 1,
+      content: `# Cleft Sentences — Câu chẻ nhấn mạnh
+
+## It-cleft — nhấn mạnh 1 thành phần cụ thể
+\`\`\`
+It + be + [thành phần nhấn mạnh] + that/who...
+\`\`\`
+
+> **It was John who** broke the window. (nhấn mạnh JOHN, không phải ai khác)
+> **It was yesterday that** the accident happened. (nhấn mạnh thời gian)
+> **It's the price that** worries me, not the quality. (nhấn mạnh vấn đề GIÁ)
+
+## What-cleft (Pseudo-cleft) — nhấn mạnh hành động/ý cả câu
+\`\`\`
+What + S + V + be + [phần nhấn mạnh]
+\`\`\`
+
+> **What I need is** a good night's sleep.
+> **What surprised me was** her sudden decision to quit.
+> **What we should do is** talk to him directly.
+
+## So sánh sắc thái
+- It-cleft: nhấn mạnh MỘT thành phần cụ thể (người, vật, thời gian...)
+- What-cleft: nhấn mạnh một Ý TƯỞNG/HÀNH ĐỘNG trừu tượng hơn
+
+## Ứng dụng
+Cleft sentences rất phổ biến trong văn phong học thuật, tranh luận, và bài luận band cao IELTS/TOEFL để tạo điểm nhấn logic.`,
+    },
+    {
+      id: "en-grammar-c2-02",
+      title: "Câu điều kiện đảo ngữ trang trọng (Formal Inversion in Conditionals)",
+      level: "C2",
+      orderIndex: 2,
+      content: `# Đảo ngữ trong câu điều kiện trang trọng
+
+## Bỏ "If", đảo trợ động từ lên đầu
+
+### Loại 2 (Were)
+\`\`\`
+If + S + were... → Were + S...
+\`\`\`
+> Were I in your position, I would accept the offer.
+> (= If I were in your position...)
+
+### Loại 3 (Had)
+\`\`\`
+If + S + had + V3... → Had + S + V3...
+\`\`\`
+> Had I known about the traffic, I would have left earlier.
+> (= If I had known...)
+
+### Với Should (giả định ít chắc chắn)
+\`\`\`
+If + S + should... → Should + S...
+\`\`\`
+> Should you need any help, please contact us.
+> (= If you should need any help...)
+
+## Văn phong sử dụng
+Cấu trúc này chỉ xuất hiện trong văn viết TRANG TRỌNG (hợp đồng, thư từ công việc, văn học, diễn văn) — hiếm khi dùng trong giao tiếp hàng ngày.
+
+## Lưu ý
+KHÔNG dùng đảo ngữ này cho câu điều kiện loại 1 (không có "Should" đặc biệt) — chỉ áp dụng cho Type 2, Type 3, và câu với "should" mang tính giả định.`,
+    },
   ];
 
   for (const lesson of lessons) {
@@ -543,7 +671,7 @@ Chỉ động từ TRẠNG TỪ (transitive verbs — có tân ngữ) mới chuy
     });
   }
 
-  console.log(`  ✓ Grammar EN seeded: ${lessons.length} bài học (A1→B1)`);
+  console.log(`  ✓ Grammar EN seeded: ${lessons.length} bài học (A1→C2)`);
 
   // ── Tiếng Trung ──────────────────────────────────────────────────────────
   const zhLang = await prisma.language.findUnique({ where: { code: "ZH" } });
@@ -716,6 +844,109 @@ A + 比 (bǐ) + B + Tính từ
 - 能/可以: khả năng chung chung, được phép
 - 得/不 bổ ngữ: khả năng cụ thể đạt được KẾT QUẢ của hành động hay không`,
     },
+    {
+      id: "zh-grammar-b2-01",
+      title: "Câu chữ 把 (bǎ) — nhấn mạnh xử lý đối tượng",
+      level: "B2",
+      orderIndex: 7,
+      content: `# Câu chữ 把 (bǎ)
+
+## Cấu trúc
+\`\`\`
+Chủ ngữ + 把 + Tân ngữ + Động từ + Bổ ngữ/kết quả
+\`\`\`
+
+Câu 把 nhấn mạnh việc XỬ LÝ 1 đối tượng CỤ THỂ và kết quả của việc xử lý đó — tân ngữ phải xác định (không phải chung chung).
+
+## Ví dụ
+- 我把书放在桌子上了。(Wǒ bǎ shū fàng zài zhuōzi shàng le.) — Tôi đã đặt quyển sách lên bàn.
+- 请把门关上。(Qǐng bǎ mén guānshàng.) — Xin hãy đóng cửa lại.
+- 他把作业写完了。(Tā bǎ zuòyè xiěwán le.) — Anh ấy đã viết xong bài tập.
+
+## So sánh với câu thường
+- 我看了这本书。(câu thường, chỉ nói đã đọc)
+- 我把这本书看完了。(câu 把, nhấn mạnh ĐÃ ĐỌC XONG — có kết quả rõ ràng)
+
+## Lưu ý quan trọng
+- Động từ trong câu 把 PHẢI có bổ ngữ đi kèm (kết quả, xu hướng, hoặc 了) — không thể chỉ có động từ trơ trọi.
+- ❌ 我把书看。 (sai — thiếu bổ ngữ)
+- ✅ 我把书看完了。 (đúng)`,
+    },
+    {
+      id: "zh-grammar-b2-02",
+      title: "Câu bị động với 被 (bèi)",
+      level: "B2",
+      orderIndex: 8,
+      content: `# Câu bị động với 被 (bèi)
+
+## Cấu trúc
+\`\`\`
+Đối tượng bị tác động + 被 + (Người thực hiện) + Động từ + Bổ ngữ
+\`\`\`
+
+## Ví dụ
+- 我的钱包被偷了。(Wǒ de qiánbāo bèi tōu le.) — Ví của tôi bị lấy trộm.
+- 这本书被他借走了。(Zhè běn shū bèi tā jièzǒu le.) — Quyển sách này đã bị anh ấy mượn mất.
+- 杯子被打破了。(Bēizi bèi dǎpò le.) — Cái cốc đã bị làm vỡ.
+
+## Khi nào dùng 被?
+Câu bị động 被 trong tiếng Trung thường mang sắc thái **KHÔNG MAY MẮN/tiêu cực** — khác với passive voice tiếng Anh trung tính.
+- 被偷 (bị trộm), 被骗 (bị lừa), 被打破 (bị vỡ) — đều là điều không mong muốn
+
+## Lưu ý
+Nếu không biết/không cần nói rõ ai làm, có thể bỏ chủ thể sau 被:
+- 车被撞坏了。(Chē bèi zhuànghuài le.) — Xe bị đâm hỏng. (không rõ ai đâm)`,
+    },
+    {
+      id: "zh-grammar-c1-01",
+      title: "Câu chữ 虽然...但是 và các liên từ nâng cao",
+      level: "C1",
+      orderIndex: 9,
+      content: `# Liên từ nâng cao: 虽然...但是, 不但...而且, 既然...就
+
+## 虽然 (suīrán)...但是 (dànshì) — Mặc dù...nhưng
+> 虽然下雨，但是我们还是出门了。(Suīrán xiàyǔ, dànshì wǒmen háishì chūmén le.) — Mặc dù trời mưa nhưng chúng tôi vẫn ra ngoài.
+
+## 不但 (búdàn)...而且 (érqiě) — Không những...mà còn
+> 她不但聪明，而且很努力。(Tā búdàn cōngming, érqiě hěn nǔlì.) — Cô ấy không những thông minh mà còn rất chăm chỉ.
+
+## 既然 (jìrán)...就 (jiù) — Đã như vậy thì...
+> 既然你已经决定了，我们就支持你。(Jìrán nǐ yǐjīng juédìng le, wǒmen jiù zhīchí nǐ.) — Đã như vậy bạn quyết định rồi thì chúng tôi ủng hộ bạn.
+
+## 除非 (chúfēi)...否则 (fǒuzé) — Trừ khi...nếu không thì
+> 除非你道歉，否则我不会原谅你。(Chúfēi nǐ dàoqiàn, fǒuzé wǒ bú huì yuánliàng nǐ.) — Trừ khi bạn xin lỗi, nếu không tôi sẽ không tha thứ.
+
+## Lưu ý
+Các cặp liên từ này thường xuất hiện CẢ 2 vế trong 1 câu (đối xứng), khác với tiếng Việt đôi khi chỉ cần 1 từ.`,
+    },
+    {
+      id: "zh-grammar-c1-02",
+      title: "Bổ ngữ xu hướng phức hợp (复合趋向补语)",
+      level: "C1",
+      orderIndex: 10,
+      content: `# Bổ ngữ xu hướng phức hợp
+
+## Cấu trúc
+\`\`\`
+Động từ + 上/下/进/出/回/过/起 + 来/去
+\`\`\`
+
+Diễn tả hướng di chuyển PHỨC HỢP (2 lớp): hướng chính (lên/xuống/vào/ra...) kết hợp hướng so với người nói (đến/đi).
+
+## Ví dụ
+- 他走进来了。(Tā zǒu jìnlái le.) — Anh ấy đi vào (phía người nói).
+- 她拿出去了。(Tā ná chūqù le.) — Cô ấy mang ra (xa người nói).
+- 孩子们跑上去了。(Háizimen pǎo shàngqù le.) — Bọn trẻ chạy lên (xa người nói).
+
+## Ý nghĩa mở rộng (trừu tượng)
+Nhiều bổ ngữ xu hướng còn mang nghĩa bóng:
+- 想起来 (xiǎng qǐlái) — nhớ ra, chợt nghĩ ra
+- 坚持下去 (jiānchí xiàqù) — kiên trì tiếp tục
+- 提出来 (tíchūlái) — đề xuất, nêu ra
+
+## Lưu ý
+Đây là 1 trong những điểm ngữ pháp khó nhất với người học trung cấp — cần luyện nghe/đọc nhiều để cảm nhận tự nhiên hơn là học thuộc quy tắc.`,
+    },
   ];
 
   for (const lesson of zhLessons) {
@@ -732,7 +963,7 @@ A + 比 (bǐ) + B + Tính từ
       },
     });
   }
-  console.log(`  ✓ Grammar ZH seeded: ${zhLessons.length} bài học (A1→B1)`);
+  console.log(`  ✓ Grammar ZH seeded: ${zhLessons.length} bài học (A1→C1)`);
 
   // ── Tiếng Nhật ───────────────────────────────────────────────────────────
   const jaLang = await prisma.language.findUnique({ where: { code: "JA" } });
@@ -901,6 +1132,130 @@ A は B と 同じぐらい Tính từ です
 \`\`\`
 - 兄は父と同じぐらい背が高いです。(Anh tôi cao ngang bố tôi.)`,
     },
+    {
+      id: "ja-grammar-b2-01",
+      title: "Thể bị động (受身形)",
+      level: "B2",
+      orderIndex: 7,
+      content: `# Thể bị động (受身形 - ukemikei)
+
+## Cách chuyển đổi
+| Nhóm động từ | Quy tắc | Ví dụ |
+|---|---|---|
+| Nhóm I (u-verb) | đổi う→われる | 読む→読まれる |
+| Nhóm II (ru-verb) | bỏ る thêm られる | 食べる→食べられる |
+| Bất quy tắc | する→される, 来る→来られる | — |
+
+## Cấu trúc câu bị động
+\`\`\`
+Đối tượng + は/が + (Người thực hiện) + に + Động từ bị động
+\`\`\`
+
+## Ví dụ
+- 私は先生に褒められました。(Watashi wa sensei ni homeraremashita.) — Tôi được thầy khen.
+- この本は多くの人に読まれています。(Cuốn sách này được nhiều người đọc.)
+
+## Bị động "gây phiền" (迷惑受身) — đặc trưng riêng của tiếng Nhật
+Diễn tả bị ảnh hưởng tiêu cực bởi hành động của người khác, kể cả động từ tự thân (nội động từ):
+- 雨に降られました。(Ame ni furaremashita.) — Tôi bị mắc mưa. (trời mưa làm phiền tôi)
+- 子供に泣かれました。(Kodomo ni nakaremashita.) — Tôi bị (con) khóc làm phiền.`,
+    },
+    {
+      id: "ja-grammar-b2-02",
+      title: "Thể sai khiến (使役形)",
+      level: "B2",
+      orderIndex: 8,
+      content: `# Thể sai khiến (使役形 - shiekikei)
+
+## Cách chuyển đổi
+| Nhóm động từ | Quy tắc | Ví dụ |
+|---|---|---|
+| Nhóm I (u-verb) | đổi う→わせる | 書く→書かせる |
+| Nhóm II (ru-verb) | bỏ る thêm させる | 食べる→食べさせる |
+| Bất quy tắc | する→させる, 来る→来させる | — |
+
+## 2 ý nghĩa chính
+**1. Bắt buộc/ra lệnh** (thường chủ thể có quyền, vd cha mẹ-con cái, sếp-nhân viên):
+> 母は子供に野菜を食べさせました。(Mẹ bắt con ăn rau.)
+
+**2. Cho phép** (khi kết hợp với てあげる/てくれる):
+> 先生は学生に早く帰らせてくれました。(Thầy giáo cho học sinh về sớm.)
+
+## Thể sai khiến bị động (使役受身) — "bị bắt phải làm gì"
+Kết hợp cả 2 thể để diễn tả bị BUỘC làm điều mình không muốn:
+> 私は毎日残業させられます。(Watashi wa mainichi zangyou saseraremasu.) — Tôi bị bắt làm thêm giờ mỗi ngày.
+
+## Lưu ý
+Thể sai khiến bị động rất hay dùng để than phiền trong văn nói tiếng Nhật hàng ngày.`,
+    },
+    {
+      id: "ja-grammar-c1-01",
+      title: "Kính ngữ (敬語) — Tôn kính ngữ và Khiêm nhường ngữ",
+      level: "C1",
+      orderIndex: 9,
+      content: `# Kính ngữ (敬語 - keigo)
+
+## 3 loại kính ngữ chính
+1. **尊敬語 (sonkeigo)** — Tôn kính ngữ: nâng cao hành động của NGƯỜI KHÁC (cấp trên, khách hàng)
+2. **謙譲語 (kenjougo)** — Khiêm nhường ngữ: hạ thấp hành động của BẢN THÂN
+3. **丁寧語 (teineigo)** — Lịch sự ngữ: です/ます (đã học ở trình độ thấp hơn)
+
+## Ví dụ Tôn kính ngữ (dùng cho hành động của người khác)
+| Động từ thường | Tôn kính ngữ |
+|---|---|
+| 行く (đi) | いらっしゃる |
+| 食べる (ăn) | 召し上がる |
+| 言う (nói) | おっしゃる |
+| する (làm) | なさる |
+
+> 社長はもう帰られました。(Giám đốc đã về rồi.)
+> 何を召し上がりますか？(Ngài dùng gì ạ?)
+
+## Ví dụ Khiêm nhường ngữ (dùng cho hành động của bản thân)
+| Động từ thường | Khiêm nhường ngữ |
+|---|---|
+| 行く/来る | 参る |
+| 言う | 申す |
+| する | いたす |
+| 見る | 拝見する |
+
+> 明日、そちらに参ります。(Ngày mai tôi sẽ đến đó ạ.)
+> 資料を拝見しました。(Tôi đã xem qua tài liệu ạ.)
+
+## Lưu ý quan trọng
+KHÔNG BAO GIỜ dùng Tôn kính ngữ cho chính mình, và không dùng Khiêm nhường ngữ cho người khác — đây là lỗi rất phổ biến của người học.`,
+    },
+    {
+      id: "ja-grammar-c1-02",
+      title: "Diễn đạt suy đoán: らしい, ようだ, みたいだ, そうだ",
+      level: "C1",
+      orderIndex: 10,
+      content: `# So sánh các cách diễn đạt suy đoán/nghe nói
+
+## そうだ (dựa trên thông tin nghe được — truyền văn)
+> 天気予報によると、明日雨が降るそうです。(Theo dự báo, ngày mai sẽ mưa.)
+— Chỉ đơn thuần THUẬT LẠI thông tin, không có ý kiến cá nhân.
+
+## らしい (suy đoán dựa trên căn cứ khách quan, có phần chắc chắn)
+> 彼はもう結婚しているらしいです。(Nghe nói/có vẻ anh ấy đã kết hôn rồi.)
+— Dựa trên thông tin gián tiếp, độ tin cậy tương đối.
+
+## ようだ (suy đoán dựa trên cảm nhận/quan sát trực tiếp của người nói)
+> 部屋の電気が消えている。誰もいないようだ。(Đèn phòng tắt rồi. Có vẻ như không có ai ở đó.)
+— Dựa trên QUAN SÁT TRỰC TIẾP của bản thân.
+
+## みたいだ (giống ようだ nhưng thân mật, dùng trong văn nói)
+> 雨が降っているみたい。(Hình như trời đang mưa.)
+— Văn nói suồng sã, ý nghĩa gần giống ようだ.
+
+## Bảng so sánh nhanh
+| Mẫu | Nguồn thông tin | Văn phong |
+|---|---|---|
+| そうだ | Nghe/đọc được | Trung tính |
+| らしい | Gián tiếp, có căn cứ | Trung tính, hơi trang trọng |
+| ようだ | Quan sát/cảm nhận trực tiếp | Trang trọng |
+| みたいだ | Quan sát/cảm nhận trực tiếp | Thân mật, văn nói |`,
+    },
   ];
 
   for (const lesson of jaLessons) {
@@ -917,5 +1272,5 @@ A は B と 同じぐらい Tính từ です
       },
     });
   }
-  console.log(`  ✓ Grammar JA seeded: ${jaLessons.length} bài học (A1→B1)`);
+  console.log(`  ✓ Grammar JA seeded: ${jaLessons.length} bài học (A1→C1)`);
 }
