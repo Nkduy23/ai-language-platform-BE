@@ -19,8 +19,12 @@ async function bootstrap() {
   app.use(cookieParser());
 
   // CORS
+  // app.enableCors({
+  //   origin: process.env.FRONTEND_URL || "http://localhost:3001",
+  //   credentials: true,
+  // });
   app.enableCors({
-    origin: process.env.FRONTEND_URL || "http://localhost:3001",
+    origin: ["https://www.flueni.id.vn"],
     credentials: true,
   });
 
