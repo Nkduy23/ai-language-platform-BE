@@ -1,11 +1,15 @@
 // users.service.ts — Profile CRUD, progress, streak
 import { Injectable, NotFoundException } from "@nestjs/common";
 import { PrismaService } from "../../database/prisma.service";
+import { CloudinaryService } from "../../common/cloudinary/cloudinary.service";
 import { UpdateProfileDto } from "./users.dto";
 
 @Injectable()
 export class UsersService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly cloudinary: CloudinaryService,
+  ) {}
 
   // GET /users/me
   async getMe(userId: string) {
@@ -24,6 +28,20 @@ export class UsersService {
       where: { userId },
       data: { ...dto },
     });
+  }
+
+  // POST /users/me/avatar — upload lên Cloudinary, xoá ảnh cũ (nếu có) rồi cập nhật avatarUrl
+  async uploadAvatar(userId: string, buffer: Buffer) {
+    const profile = await this.prisma.userProfile.findUnique({ where: { userId } });
+    if (!profile) throw new NotFoundException("Không tìm thấy hồ sơ user");
+
+    const newUrl = await this.cloudinary.uploadImage(buffer, "avatars");
+
+    if (profile.avatarUrl) {
+      this.cloudinary.deleteImage(profile.avatarUrl).catch(() => {});
+    }
+
+    return this.prisma.userProfile.update({ where: { userId }, data: { avatarUrl: newUrl } });
   }
 
   // GET /users/me/progress

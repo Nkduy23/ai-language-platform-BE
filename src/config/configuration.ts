@@ -68,4 +68,16 @@ export default () => ({
     domain: process.env.COOKIE_DOMAIN || undefined,
     secure: process.env.NODE_ENV === "production",
   },
+
+  vapid: {
+    publicKey: process.env.VAPID_PUBLIC_KEY,
+    privateKey: process.env.VAPID_PRIVATE_KEY,
+    subject: process.env.VAPID_SUBJECT || "mailto:admin@flueni.id.vn",
+  },
+
+  cloudinary: {
+    cloudName: process.env.CLOUDINARY_CLOUD_NAME,
+    apiKey: process.env.CLOUDINARY_API_KEY,
+    apiSecret: process.env.CLOUDINARY_API_SECRET,
+  },
 });
