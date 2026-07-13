@@ -1,7 +1,8 @@
 // subscriptions.controller.ts — Plans, checkout, current subscription, webhooks (Stripe/VNPay)
-import { Body, Controller, Get, Headers, HttpCode, HttpStatus, Post, Query, Req, UseGuards } from "@nestjs/common";
+import { Body, Controller, Get, Headers, HttpCode, HttpStatus, Post, Query, Req, Res, UseGuards } from "@nestjs/common";
 import type { RawBodyRequest } from "@nestjs/common";
-import type { Request } from "express";
+import type { Request, Response } from "express";
+import { ConfigService } from "@nestjs/config";
 import { SubscriptionsService } from "./subscriptions.service";
 import { CreateCheckoutDto } from "./subscriptions.dto";
 import { JwtAuthGuard } from "../../common/guards/jwt-auth.guard";
@@ -9,7 +10,10 @@ import { CurrentUser } from "../../common/decorators/current-user.decorator";
 
 @Controller("subscriptions")
 export class SubscriptionsController {
-  constructor(private readonly subscriptionsService: SubscriptionsService) {}
+  constructor(
+    private readonly subscriptionsService: SubscriptionsService,
+    private readonly configService: ConfigService,
+  ) {}
 
   // GET /subscriptions/plans — public, không cần login
   @Get("plans")
@@ -39,10 +43,17 @@ export class SubscriptionsController {
     return this.subscriptionsService.handleStripeWebhook(req.rawBody as Buffer, signature);
   }
 
-  // POST /subscriptions/webhook/vnpay — VNPay redirect kèm query params đã ký
-  @Post("webhook/vnpay")
-  @HttpCode(HttpStatus.OK)
-  handleVnpayWebhook(@Query() query: Record<string, string>) {
-    return this.subscriptionsService.handleVnpayWebhook(query);
+  // GET /subscriptions/webhook/vnpay — VNPay redirect TRÌNH DUYỆT người dùng về đây bằng GET (không phải POST)
+  // Xử lý xong thì redirect tiếp sang FE để hiển thị UI đẹp, không trả JSON thô cho người dùng thấy
+  @Get("webhook/vnpay")
+  async handleVnpayWebhook(@Query() query: Record<string, string>, @Res() res: Response) {
+    const frontendUrl = this.configService.get<string>("frontendUrl");
+    try {
+      const result = await this.subscriptionsService.handleVnpayWebhook(query);
+      const redirectUrl = result.success ? `${frontendUrl}/dashboard/profile?checkout=success` : `${frontendUrl}/pricing?checkout=failed`;
+      return res.redirect(redirectUrl);
+    } catch (err) {
+      return res.redirect(`${frontendUrl}/pricing?checkout=error`);
+    }
   }
 }
