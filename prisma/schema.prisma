@@ -93,6 +93,7 @@ model User {
   communityLikes     CommunityLike[]
   communityBookmarks CommunityBookmark[]
   notifications      Notification[]
+  pushSubscriptions  PushSubscription[]
 
   @@map("users")
 }
@@ -412,4 +413,20 @@ model Notification {
 
   @@index([userId, isRead])
   @@map("notifications")
+}
+
+// Lưu push subscription trình duyệt (Web Push API) — 1 user có thể có nhiều thiết bị/trình duyệt
+model PushSubscription {
+  id        String   @id @default(uuid())
+  userId    String   @map("user_id")
+  endpoint  String   @db.Text
+  p256dh    String   @db.Text
+  auth      String   @db.Text
+  userAgent String?  @map("user_agent")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, endpoint(length: 255)])
+  @@map("push_subscriptions")
 }

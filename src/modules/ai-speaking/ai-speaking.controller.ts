@@ -7,6 +7,7 @@ import { JwtAuthGuard } from "../../common/guards/jwt-auth.guard";
 import { SubscriptionGuard } from "../../common/guards/subscription.guard";
 import { RequirePlan } from "../../common/decorators/require-plan.decorator";
 import { CurrentUser } from "../../common/decorators/current-user.decorator";
+import { Multer } from "multer";
 
 const MAX_AUDIO_SIZE_BYTES = 10 * 1024 * 1024; // 10MB
 
