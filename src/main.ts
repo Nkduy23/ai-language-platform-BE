@@ -6,6 +6,14 @@ import * as Sentry from "@sentry/node";
 import { AppModule } from "./app.module";
 import { AllExceptionsFilter } from "./common/filters/http-exception.filter";
 
+process.on("unhandledRejection", (reason) => {
+  console.error("🔥 Unhandled Rejection:", reason);
+});
+process.on("uncaughtException", (err) => {
+  console.error("🔥 Uncaught Exception:", err);
+  process.exit(1); // để Railway biết mà restart thay vì treo lơ lửng
+});
+
 async function bootstrap() {
   // Sentry — chỉ bật khi có DSN, không throw lỗi nếu thiếu (dev local không cần)
   if (process.env.SENTRY_DSN) {
