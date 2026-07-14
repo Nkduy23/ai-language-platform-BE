@@ -6,12 +6,11 @@ import * as Sentry from "@sentry/node";
 import { AppModule } from "./app.module";
 import { AllExceptionsFilter } from "./common/filters/http-exception.filter";
 
+// Lưới an toàn cuối cùng: 1 lỗi async không ai catch (vd thư viện bên thứ 3 tự làm việc ngầm)
+// không nên làm sập cả server — chỉ log lại để biết mà sửa, KHÔNG dùng process.exit().
 process.on("unhandledRejection", (reason) => {
-  console.error("🔥 Unhandled Rejection:", reason);
-});
-process.on("uncaughtException", (err) => {
-  console.error("🔥 Uncaught Exception:", err);
-  process.exit(1); // để Railway biết mà restart thay vì treo lơ lửng
+  // eslint-disable-next-line no-console
+  console.error("[UnhandledRejection]", reason);
 });
 
 async function bootstrap() {
@@ -27,12 +26,8 @@ async function bootstrap() {
   app.use(cookieParser());
 
   // CORS
-  // app.enableCors({
-  //   origin: process.env.FRONTEND_URL || "http://localhost:3001",
-  //   credentials: true,
-  // });
   app.enableCors({
-    origin: ["https://www.flueni.id.vn"],
+    origin: process.env.FRONTEND_URL || "http://localhost:3001",
     credentials: true,
   });
 

@@ -16,9 +16,17 @@ export class TtsService {
 
   constructor(private readonly configService: ConfigService) {
     const credsJson = this.configService.get<string>("googleTts.credentialsJson");
+
+    // Chưa có credentials → KHÔNG khởi tạo client, để tránh thư viện Google tự động
+    // thử tìm Application Default Credentials khi gọi API sau này (gây crash cả process).
+    if (!credsJson) {
+      this.logger.warn("Google TTS chưa được cấu hình — AI Speaking sẽ tự fallback sang Web Speech API ở trình duyệt");
+      return;
+    }
+
     try {
-      const credentials = credsJson ? JSON.parse(credsJson) : undefined;
-      this.client = new textToSpeech.TextToSpeechClient(credentials ? { credentials } : undefined);
+      const credentials = JSON.parse(credsJson);
+      this.client = new textToSpeech.TextToSpeechClient({ credentials });
     } catch (err) {
       this.logger.warn(`Google TTS client init thất bại: ${(err as Error).message}`);
     }
