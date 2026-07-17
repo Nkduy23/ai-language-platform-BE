@@ -23,6 +23,12 @@ export class UsersController {
     return this.usersService.updateProfile(userId, dto);
   }
 
+  // POST /users/me/complete-onboarding
+  @Post("me/complete-onboarding")
+  completeOnboarding(@CurrentUser("id") userId: string) {
+    return this.usersService.completeOnboarding(userId);
+  }
+
   // POST /users/me/avatar — upload ảnh đại diện thật lên Cloudinary
   @Post("me/avatar")
   @UseInterceptors(FileInterceptor("avatar", { limits: { fileSize: MAX_AVATAR_SIZE_BYTES } }))

@@ -34,6 +34,7 @@ export class GrammarService {
           id: true,
           title: true,
           level: true,
+          category: true,
           orderIndex: true,
           createdAt: true,
           language: { select: { code: true, name: true, flag: true } },

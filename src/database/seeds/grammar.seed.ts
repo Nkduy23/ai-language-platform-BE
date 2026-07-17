@@ -1,6 +1,64 @@
 // database/seeds/grammar.seed.ts — Seed grammar lessons
 import { PrismaClient } from "@prisma/client";
 
+// Map category theo id — tách riêng để không phải sửa lại từng lesson object bên dưới.
+// FE dùng field này cho view "Theo chủ đề" ở trang Grammar.
+const CATEGORY_MAP: Record<string, string> = {
+  // ── Tiếng Anh ──────────────────────────────────────────────────────────
+  "en-grammar-a1-01": "Động từ cơ bản",
+  "en-grammar-a1-02": "Danh từ & Mạo từ",
+  "en-grammar-a1-03": "Thì động từ",
+  "en-grammar-a1-04": "Danh từ & Đại từ",
+  "en-grammar-a1-05": "Câu hỏi",
+  "en-grammar-a1-06": "Cấu trúc câu cơ bản",
+  "en-grammar-a2-01": "Thì động từ",
+  "en-grammar-a2-02": "Thì động từ",
+  "en-grammar-a2-03": "Giới từ",
+  "en-grammar-a2-04": "Giới từ",
+  "en-grammar-a2-05": "Động từ khiếm khuyết",
+  "en-grammar-b1-01": "Thì động từ",
+  "en-grammar-b1-02": "Câu điều kiện",
+  "en-grammar-b1-03": "Động từ cơ bản",
+  "en-grammar-b1-04": "Thì động từ",
+  "en-grammar-b2-01": "Câu bị động",
+  "en-grammar-b2-02": "Mệnh đề quan hệ",
+  "en-grammar-b2-03": "Câu giả định",
+  "en-grammar-c1-01": "Đảo ngữ & Nhấn mạnh",
+  "en-grammar-c1-02": "Câu điều kiện",
+  "en-grammar-c2-01": "Đảo ngữ & Nhấn mạnh",
+  "en-grammar-c2-02": "Câu điều kiện",
+  // ── Tiếng Trung ────────────────────────────────────────────────────────
+  "zh-grammar-a1-01": "Cấu trúc câu cơ bản",
+  "zh-grammar-a1-02": "Trợ từ",
+  "zh-grammar-a1-03": "Thì động từ",
+  "zh-grammar-a2-01": "Trợ từ",
+  "zh-grammar-a2-02": "Danh từ & Lượng từ",
+  "zh-grammar-a2-03": "Động từ khiếm khuyết",
+  "zh-grammar-b1-01": "So sánh",
+  "zh-grammar-b1-02": "Bổ ngữ",
+  "zh-grammar-b1-03": "Giới từ",
+  "zh-grammar-b1-04": "Cấu trúc câu cơ bản",
+  "zh-grammar-b2-01": "Cấu trúc đặc biệt",
+  "zh-grammar-b2-02": "Câu bị động",
+  "zh-grammar-c1-01": "Liên từ",
+  "zh-grammar-c1-02": "Bổ ngữ",
+  // ── Tiếng Nhật ─────────────────────────────────────────────────────────
+  "ja-grammar-a1-01": "Trợ từ",
+  "ja-grammar-a1-02": "Trợ từ",
+  "ja-grammar-a2-01": "Thì động từ",
+  "ja-grammar-a2-02": "Trợ từ",
+  "ja-grammar-a2-03": "Động từ cơ bản",
+  "ja-grammar-b1-01": "Động từ cơ bản",
+  "ja-grammar-b1-02": "So sánh",
+  "ja-grammar-b1-03": "Liên từ",
+  "ja-grammar-b1-04": "Cấu trúc đặc biệt",
+  "ja-grammar-b1-05": "Cấu trúc đặc biệt",
+  "ja-grammar-b2-01": "Câu bị động",
+  "ja-grammar-b2-02": "Cấu trúc đặc biệt",
+  "ja-grammar-c1-01": "Kính ngữ",
+  "ja-grammar-c1-02": "Diễn đạt suy đoán",
+};
+
 export async function seedGrammar(prisma: PrismaClient) {
   console.log("  → Seeding grammar lessons...");
 
@@ -789,6 +847,7 @@ want, need, decide, hope, plan, promise, agree...
         title: lesson.title,
         content: lesson.content,
         level: lesson.level as any,
+        category: CATEGORY_MAP[lesson.id] ?? null,
         orderIndex: lesson.orderIndex,
       },
     });
@@ -1167,6 +1226,7 @@ Diễn tả mức độ CAO, thường mang sắc thái cảm thán (quá, rất
         title: lesson.title,
         content: lesson.content,
         level: lesson.level as any,
+        category: CATEGORY_MAP[lesson.id] ?? null,
         orderIndex: lesson.orderIndex,
       },
     });
@@ -1574,6 +1634,7 @@ Diễn tả 2 hành động xảy ra ĐỒNG THỜI, do CÙNG 1 người thực 
         title: lesson.title,
         content: lesson.content,
         level: lesson.level as any,
+        category: CATEGORY_MAP[lesson.id] ?? null,
         orderIndex: lesson.orderIndex,
       },
     });

@@ -30,6 +30,16 @@ export class UsersService {
     });
   }
 
+  // POST /users/me/complete-onboarding — đánh dấu user đã hoàn thành luồng onboarding
+  // (chọn ngôn ngữ → placement test → xem kết quả). Server tự set thời điểm, client không
+  // được tự truyền timestamp tuỳ ý qua PATCH /users/me để tránh giả mạo.
+  async completeOnboarding(userId: string) {
+    return this.prisma.userProfile.update({
+      where: { userId },
+      data: { onboardingCompletedAt: new Date() },
+    });
+  }
+
   // POST /users/me/avatar — upload lên Cloudinary, xoá ảnh cũ (nếu có) rồi cập nhật avatarUrl
   async uploadAvatar(userId: string, buffer: Buffer) {
     const profile = await this.prisma.userProfile.findUnique({ where: { userId } });

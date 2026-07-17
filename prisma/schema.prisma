@@ -110,6 +110,7 @@ model UserProfile {
   streakDays   Int          @default(0) @map("streak_days")
   totalXp      Int          @default(0) @map("total_xp")
   lastActiveAt DateTime?    @map("last_active_at")
+  onboardingCompletedAt DateTime? @map("onboarding_completed_at")
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
@@ -187,6 +188,7 @@ model GrammarLesson {
   title      String
   content    String    @db.LongText
   level      CefrLevel @default(A1)
+  category   String?   @db.VarChar(100)
   orderIndex Int       @default(0) @map("order_index")
   createdAt  DateTime  @default(now()) @map("created_at")
 
